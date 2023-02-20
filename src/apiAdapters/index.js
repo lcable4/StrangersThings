@@ -18,14 +18,15 @@ export const getAllPosts = async () => {
 
 export const registrationInfo = async (name, password) => {
     try {
+        const token = localStorage.getItem('token')
         const response = await fetch(BASE_URL, {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
-                "Authorization": "Bearer TOKEN_STRING_HERE",
+                "Authorization": `Bearer ${token}`,
             },
             body: JSON.stringify({
-                name: name,
+                username: name,
                 password: password,
             }),
 
