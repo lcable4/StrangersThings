@@ -29,10 +29,10 @@ const AllPosts = () => {
                 return (
                     <div key={idx} className="allPosts">
                         <h3>{post.title}</h3>
-                        <span>{post.active ? "still active" : "not active"}</span>
+                        <span>Price: {post.price}</span>
                         <span>{post.description}</span>
-                        <span>{post.price}</span>
-                        <span>{post.location}</span>
+                        <span>Location: {post.location}</span>
+                        <span>Active: {post.active ? "Yes" : "No"}</span>
                     </div>
                 )
             }) : null
