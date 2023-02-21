@@ -14,3 +14,29 @@ export const getAllPosts = async () => {
     getAllPosts()
 }
 
+export async function userLogin(name, pssword) {
+    try {
+        const username = name;
+        const password = pssword; 
+        const response = await fetch('https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/users/login', {
+           method: "POST",
+           headers: {
+            'Content-Type': 'application/json'
+           },
+           body: JSON.stringify({
+            user: {
+                username: username,
+                password: password
+            }
+           }) 
+        }).then(response => response.json())
+        .then(result=>{
+            //console.log(result);
+            return result;
+        })
+        // const data = await response.json();
+        // localStorage.setItem('token', data.data.token); 
+    } catch (error) {
+        console.log(error);
+    }
+}

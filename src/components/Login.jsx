@@ -1,39 +1,18 @@
 import React, {useState} from 'react'
 import { Link } from "react-router-dom"
-async function userLogin(name, pssword) {
-    try {
-        const username = name;
-        const password = pssword; 
-        const response = await fetch('https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/users/login', {
-           method: "POST",
-           headers: {
-            'Content-Type': 'application/json'
-           },
-           body: JSON.stringify({
-            user: {
-                username: username,
-                password: password
-            }
-           }) 
-        }).then(response => response.json())
-        .then(result=>{
-            console.log(result);
-            return result;
-        })
-        // const data = await response.json();
-        // localStorage.setItem('token', data.data.token); 
-    } catch (error) {
-        console.log(error);
-    }
-}
+import {userLogin} from "../apiAdapters/index.js"
 
 export default function Login() {
   
     const [login, setLogin] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
-
+    const [response, setResponse] = useState({})
+    async function onLogin(username, password)//set response to state || set token to local storage
+    {
+        setResponse(userLogin(username, password));
+        console.log(response);
+    }
     //userLogin("creator", "12345");
   
     return (
@@ -43,8 +22,10 @@ export default function Login() {
         <form onSubmit={(event)=>
         {
             event.preventDefault();
-            let response = userLogin(username, password);
+            onLogin(username, password)//change to async
             console.log(response); 
+            /*
+            */
         }
         }>
         <label>Username:
