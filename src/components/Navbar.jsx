@@ -3,7 +3,18 @@ import { Link } from "react-router-dom"
 
 function onLogoutClick()
 {
+  console.log("been clicked")
   localStorage.removeItem("token");
+  window.location.reload(false);
+}
+
+function ifUserLogged()
+{
+  if(localStorage.getItem("token"))
+  {
+    return true;
+  }
+  return false; 
 }
 
 const Login = () =>
@@ -14,18 +25,14 @@ return(
   </Link>
 )
 }
-const Logout = ()=>
-{return(
-  <button onClick={onLogoutClick()}>Logout</button>
-)
-}
+
 
 const Navbar = () => {
   return (
     <div id="navbar">
       <h2> Stranger's Things</h2>
       {
-        localStorage.getItem("token") ? <Logout/>:<Login/>
+        ifUserLogged() ? <button type="submit" onClick={onLogoutClick}>Logout</button>:<Login/>
       }
       <Link to="/registration">
         <button>Register</button>

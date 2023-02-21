@@ -18,8 +18,9 @@ export default function Login() {
               setResponse(token);
               setUsername("");
               setPassword("");
-              setSubmitMessage("Successfully registered!");  
-          }
+              setSubmitMessage("Successfully logged in!");  
+          } 
+          
           console.log(response);
         } catch (error) {
           console.log(error);
@@ -49,7 +50,7 @@ export default function Login() {
         </label>
         <br/>
         <label>Password:
-            <input name="password" type="text" value={password} onChange={(event)=>
+            <input name="password" type="password" value={password} onChange={(event)=>
             {
                 setPassword(event.target.value);
             }}/>
