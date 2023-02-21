@@ -29,11 +29,11 @@ export async function userLogin(name, pssword) {
                 password: password
             }
            }) 
-        }).then(response => response.json())
-        .then(result=>{
-            //console.log(result);
-            return result;
         })
+        const data = await response.json();
+        localStorage.setItem('token', data.data.token); 
+    
+        return data.data.token;
         // const data = await response.json();
         // localStorage.setItem('token', data.data.token); 
     } catch (error) {

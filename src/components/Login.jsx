@@ -7,12 +7,17 @@ export default function Login() {
     const [login, setLogin] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [response, setResponse] = useState({})
-    async function onLogin(username, password)//set response to state || set token to local storage
-    {
-        setResponse(userLogin(username, password));
-        console.log(response);
-    }
+    const [response, setResponse] = useState("")
+    
+    async function onLogin(username, password) {
+        try {
+          const token = await userLogin(username, password);
+          setResponse(token);
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+      }
     //userLogin("creator", "12345");
   
     return (
