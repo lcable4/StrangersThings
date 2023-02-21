@@ -32,10 +32,8 @@ export async function userLogin(name, pssword) {
         })
         const data = await response.json();
         localStorage.setItem('token', data.data.token); 
-    
-        return data.data.token;
-        // const data = await response.json();
-        // localStorage.setItem('token', data.data.token); 
+        console.log(data)
+        return data;
     } catch (error) {
         console.log(error);
     }

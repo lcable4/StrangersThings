@@ -7,12 +7,19 @@ export default function Login() {
     const [login, setLogin] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [response, setResponse] = useState("")
+    const [response, setResponse] = useState("");
+    const [submitMessage, setSubmitMessage] = useState("");
     
     async function onLogin(username, password) {
         try {
           const token = await userLogin(username, password);
-          setResponse(token);
+          console.log(token)
+          if (token.success) {
+              setResponse(token);
+              setUsername("");
+              setPassword("");
+              setSubmitMessage("Successfully registered!");  
+          }
           console.log(response);
         } catch (error) {
           console.log(error);
@@ -49,6 +56,7 @@ export default function Login() {
 
         </label>
         <button type="submit">Log In</button>
+        {submitMessage && <p>{submitMessage}</p>}
         </form>
     </div>
     <Link to="/">Go Back</Link>
