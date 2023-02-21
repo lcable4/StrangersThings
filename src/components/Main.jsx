@@ -8,6 +8,7 @@ const Main = () => {
         <div id="main">
             <Navbar />
             <AllPosts />
+            
         </div>
     )
 }

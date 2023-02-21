@@ -19,7 +19,6 @@ const AllPosts = () => {
     useEffect(() => {
         getPosts();
     }, [])
-   
     
     return (
     <div>
