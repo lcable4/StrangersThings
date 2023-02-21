@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom"
-import { registrationInfo } from '../apiAdapters'
+
 
 export default function Registration() {
   
@@ -40,8 +40,10 @@ export default function Registration() {
                 setNewUserName("");
                 setNewUserPass("");
                 setPassVerification("")
+
+
                 localStorage.setItem(name, password);
-                localStorage.setItem('token', result.data.token)
+                localStorage.setItem(`token-${newUserName}`, result.data.token)
             } else {
                 console.error(result.error.message);
                 setErrorMessage(result.error.message)
@@ -51,9 +53,6 @@ export default function Registration() {
             console.log(error);
         }
     }
-    console.log(newUserName, "username")
-    console.log(newUserPass, "password")
-    console.log(newUser)
     
     return (
     <div className="registrationForm">
@@ -106,6 +105,9 @@ export default function Registration() {
             </p>
             <button type="submit">Submit</button>
             {submitMessage && <p>{submitMessage}</p>}
+            <p>
+            <Link to="/login">Already a user? Sign in</Link>
+            </p>
             <Link to="/">Go Back</Link>
         </form>
     </div>            

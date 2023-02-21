@@ -7,8 +7,6 @@ export const getAllPosts = async () => {
         })
         const result = await response.json();
         const fixedResult = result.data.posts
-        // console.log(result, "result")
-        // console.log(fixedResult, "fixed result")
         return fixedResult
     } catch (error) {
         console.log(error)
@@ -16,26 +14,3 @@ export const getAllPosts = async () => {
     getAllPosts()
 }
 
-export const registrationInfo = async (name, password) => {
-    try {
-        const token = localStorage.getItem('token')
-        const response = await fetch(BASE_URL, {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json",
-                "Authorization": `Bearer ${token}`,
-            },
-            body: JSON.stringify({
-                username: name,
-                password: password,
-            }),
-
-        })
-        const result = await response.json();
-        console.log(result)
-        return result;
-    } catch (error) {
-        console.log(error)  
-    }
-    registrationInfo()
-}
