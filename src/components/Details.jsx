@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {Link, useParams} from "react-router-dom"
-import { getAllPosts } from '../apiAdapters';
+import { getAllPosts, messages } from '../apiAdapters';
+
 
 export default function Details() {
   
@@ -20,6 +21,8 @@ export default function Details() {
         fetchPost();
     }, [postId]);
 
+    function sendMessage(postId, content)
+
     return (
     <>
     <div>
@@ -37,6 +40,25 @@ export default function Details() {
             )
         }
     </div>
+    <form onSubmit={(e) => {
+            e.preventDefault();
+            sendMessage(newUserName, newUserPass);
+        }}>
+            <p>
+                <label>
+                    Send a message:
+                    <input
+                        name="name"
+                        type="text"
+                        value={newUserName}
+                        required
+                        minLength="5"
+                        onChange={(e) => {
+                            setNewUserName(e.target.value);
+                        }}
+                    />
+                </label>    
+            </p>
     <Link to="/">Go Back</Link>
     </>
   )
