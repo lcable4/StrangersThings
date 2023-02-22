@@ -11,6 +11,7 @@ const AllPosts = () => {
         try {
           const result = await getAllPosts();
           setPosts(result);
+          console.log(result)
         } catch (err) {
           console.log(err);
         }
@@ -23,7 +24,8 @@ const AllPosts = () => {
     return (
     <div>
         <h1>All Posts</h1>
-        {
+        {   
+
             posts.length ? posts.map((post, idx) => {
                 return (
                     <div key={idx} className="allPosts">
@@ -32,6 +34,7 @@ const AllPosts = () => {
                         <span>{post.description}</span>
                         <span>Location: {post.location}</span>
                         <span>Active: {post.active ? "Yes" : "No"}</span>
+                        <Link to={`/details/${post._id}`}><button>See details</button></Link>
                     </div>
                 )
             }) : null

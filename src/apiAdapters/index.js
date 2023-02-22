@@ -41,6 +41,7 @@ export async function userLogin(name, pssword) {
 
 export async function makeNewPost (title, description, price, location) {
     try {
+        const userID = localStorage.getItem('userID');
         const response = fetch('https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/posts', {
             method: "POST",
             headers: {
@@ -53,13 +54,27 @@ export async function makeNewPost (title, description, price, location) {
                 description: description,
                 price: "$"+price,
                 location: location,
-                willDeliver: true
+                willDeliver: true,
+                authorId: userID
               }
             })
         })
         const data = await response.json();
-        console.log(data)
+        return data
         }  catch (error) {
         console.log(error)
     }
-}
+ }
+// export async function deletePost () {
+//     try {
+//         const response = fetch(`https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/posts/${}`, {
+//             method: "DELETE",
+//              headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `Bearer ${localStorage.getItem('token')}`
+//   }
+//         })
+//     } catch (error) {
+        
+//     }
+// }

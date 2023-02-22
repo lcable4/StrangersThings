@@ -18,7 +18,8 @@ export default function Login() {
               setResponse(token);
               setUsername("");
               setPassword("");
-              setSubmitMessage("Successfully logged in!");  
+              setSubmitMessage("Successfully logged in!");
+              
           } 
           
           console.log(response);
