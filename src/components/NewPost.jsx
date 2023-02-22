@@ -13,41 +13,49 @@ export default function NewPost()
 
     return(
         <>
-        <div>
+        <div className='newPostForm'>
         <form onSubmit={(event)=>
         {
             event.preventDefault();
             makeNewPost(title,description, price,location)
         }
         }>
-            <label>Title:
-                <input name="title" type="text" value={title} onChange={(event)=>
-                {
-                    setTitle(event.target.value);
-                }}></input>
-            </label>
-            <label>Price:
-                <input name="price" type="text" value={price} onChange={(event)=>
-                {
-                    setPrice(event.target.value);
-                }}></input>
-            </label>
-            <label>Description:
-                <input name="description" type="text" value={description} onChange={(event)=>
-                {
-                    setDescription(event.target.value);
-                }}></input>
-            </label>
-            <label>Location:
-                <input name="location" type="text" value={location} onChange={(event)=>
-                {
-                    setLocation(event.target.value);
-                }}></input>
-            </label>
-            <button type="submit">Post</button>
+            <p>
+                <label>Title:
+                    <input required name="title" type="text" value={title} onChange={(event)=>
+                    {
+                        setTitle(event.target.value);
+                    }}></input>
+                </label>
+            </p>
+            <p>
+                <label>Price:
+                    <input required name="price" type="text" value={price} onChange={(event)=>
+                    {
+                        setPrice(event.target.value);
+                    }}></input>
+                </label>
+            </p>
+            <p>
+                <label>Description:
+                    <input required name="description" type="text" value={description} onChange={(event)=>
+                    {
+                        setDescription(event.target.value);
+                    }}></input>
+                </label>
+            </p>
+            <p>
+                <label>Location:
+                    <input required name="location" type="text" value={location} onChange={(event)=>
+                    {
+                        setLocation(event.target.value);
+                    }}></input>
+                </label>
+            </p>
         </form>
-        </div>
+            <button type="submit">Post</button>
         <Link to="/">Go Back</Link>
+        </div>
         </>
     )
 }

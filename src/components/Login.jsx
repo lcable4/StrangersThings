@@ -14,6 +14,7 @@ export default function Login() {
         try {
           const token = await userLogin(username, password);
           if (token.success) {
+              console.log(token)
               setResponse(token);
               setUsername("");
               setPassword("");
@@ -30,7 +31,7 @@ export default function Login() {
   
     return (
     <>
-    <div>
+    <div className='loginForm'>
         <h1>Login</h1>
         <form onSubmit={(event)=>
         {
@@ -41,26 +42,30 @@ export default function Login() {
             */
         }
         }>
-        <label>Username:
-            <input name="username" type="text" value ={username} onChange={(event)=>
-            {
-                console.log("change");
-                setUsername(event.target.value);
-            }}/>
-        </label>
-        <br/>
-        <label>Password:
-            <input name="password" type="password" value={password} onChange={(event)=>
-            {
-                setPassword(event.target.value);
-            }}/>
+        <p>
+          <label>Username:
+              <input name="username" type="text" value ={username} required onChange={(event)=>
+              {
+                  console.log("change");
+                  setUsername(event.target.value);
+              }}/>
+          </label>
+        </p>
+        <p>
+          <label>Password:
+              <input name="password" type="password" value={password} required onChange={(event)=>
+              {
+                  setPassword(event.target.value);
+              }}/>
 
-        </label>
+          </label>
+        </p>
         <button type="submit">Log In</button>
         {submitMessage && <p>{submitMessage}</p>}
         </form>
-    </div>
+    <Link to="/registration">New user? Register here</Link>
     <Link to="/">Go Back</Link>
+    </div>
     </>
   )
 }

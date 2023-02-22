@@ -47,7 +47,7 @@ return(
 const Navbar = () => {
   return (
     <div id="navbar">
-      <h2> Stranger's Things</h2>
+      <h2 className="siteTitle"> Stranger's Things</h2>
       {
         ifUserLogged() ? <Logout/>:<Login/>
       }

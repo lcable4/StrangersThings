@@ -41,11 +41,9 @@ export default function Registration() {
                 setNewUserPass("");
                 setPassVerification("")
 
-
                 localStorage.setItem(name, password);
                 localStorage.setItem(`token-${newUserName}`, result.data.token)
             } else {
-                console.error(result.error.message);
                 setErrorMessage(result.error.message)
             }
         } catch (error) {
@@ -56,6 +54,7 @@ export default function Registration() {
     
     return (
     <div className="registrationForm">
+        <h1>Register</h1>
         {errorMessage && <div>{errorMessage}</div>}
         <form onSubmit={(e) => {
             e.preventDefault();
