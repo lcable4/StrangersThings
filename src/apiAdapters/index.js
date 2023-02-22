@@ -38,3 +38,28 @@ export async function userLogin(name, pssword) {
         console.log(error);
     }
 }
+
+export async function makeNewPost (title, description, price, location) {
+    try {
+        const response = fetch('https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/posts', {
+            method: "POST",
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${localStorage.getItem('token')}`
+            },
+            body: JSON.stringify({
+              post: {
+                title: title,
+                description: description,
+                price: "$"+price,
+                location: location,
+                willDeliver: true
+              }
+            })
+        })
+        const data = await response.json();
+        console.log(data)
+        }  catch (error) {
+        console.log(error)
+    }
+}

@@ -17,12 +17,29 @@ function ifUserLogged()
   return false; 
 }
 
+const Logout = () =>
+{
+  return(
+    <>
+    <button onClick={onLogoutClick}>Logout</button>
+    <Link to="/newpost">
+      <button>New Post</button>
+    </Link>
+    </>
+  )
+}
+
 const Login = () =>
 {
 return(
+  <>
   <Link to="/login">
     <button>Login</button>
   </Link>
+  <Link to="/registration">
+    <button>Register</button>
+  </Link>
+  </>
 )
 }
 
@@ -32,11 +49,8 @@ const Navbar = () => {
     <div id="navbar">
       <h2> Stranger's Things</h2>
       {
-        ifUserLogged() ? <button type="submit" onClick={onLogoutClick}>Logout</button>:<Login/>
+        ifUserLogged() ? <Logout/>:<Login/>
       }
-      <Link to="/registration">
-        <button>Register</button>
-      </Link>
     </div>
   );
 };
