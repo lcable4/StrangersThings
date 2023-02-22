@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from "react-router-dom"
-import {userLogin} from "../apiAdapters/index.js"
+import {userLogin, displayMessages} from "../apiAdapters/index.js"
 
 export default function Login() {
   
@@ -13,13 +13,12 @@ export default function Login() {
     async function onLogin(username, password) {
         try {
           const token = await userLogin(username, password);
-          console.log(token)
           if (token.success) {
               setResponse(token);
               setUsername("");
               setPassword("");
               setSubmitMessage("Successfully logged in!");
-              
+              displayMessages();
           } 
           
           console.log(response);

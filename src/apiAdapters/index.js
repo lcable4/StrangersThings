@@ -103,3 +103,15 @@ export async function messages (postId, message) {
   })
   .catch(console.error);
 }
+export async function displayMessages () {
+    fetch('https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/users/me', {
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+  },
+}).then(response => response.json())
+  .then(result => {
+    console.log(result);
+  })
+  .catch(console.error);
+}
