@@ -4,6 +4,11 @@ export const getAllPosts = async () => {
     try {
         const response = await fetch(BASE_URL, {
             method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+              },
+
         })
         const result = await response.json();
         const fixedResult = result.data.posts
@@ -55,7 +60,7 @@ export async function makeNewPost (title, description, price, location) {
                 price: "$"+price,
                 location: location,
                 willDeliver: true,
-                authorId: userID
+                authorId: {_id:userID}
               }
             })
         })
@@ -65,16 +70,17 @@ export async function makeNewPost (title, description, price, location) {
         console.log(error)
     }
  }
-// export async function deletePost () {
-//     try {
-//         const response = fetch(`https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/posts/${}`, {
-//             method: "DELETE",
-//              headers: {
-//                 'Content-Type': 'application/json',
-//                 'Authorization': `Bearer ${localStorage.getItem('token')}`
-//   }
-//         })
-//     } catch (error) {
+export async function deletePost (postId) {
+        const response = fetch(`https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/posts/${postId}`, {
+            method: "DELETE",
+             headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+  }
+        }).then(response => response.json())
+    .then(result => {
+      console.log(result);
+    })
+    .catch(console.error);
         
-//     }
-// }
+    }
