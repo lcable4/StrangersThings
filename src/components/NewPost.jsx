@@ -10,41 +10,45 @@ export default function NewPost()
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
     const [location, setLocation] = useState("");
+    const [post, setPost] = useState(false);
 
     return(
         <>
         <div className='newPostForm'>
-        <form onSubmit={(event)=>
+            <h1 className='newPostTitle'>Make a listing</h1>
+        <form className="newPostDetails" onSubmit={(event)=>
         {
             event.preventDefault();
             makeNewPost(title,description, price,location);
+            setPost(true);
+            setTitle('');
+            setPrice('');
+            setDescription('');
+            setLocation('');
         }
         }>
-            <p>
+            
                 <label>Title:
                     <input required name="title" type="text" value={title} onChange={(event)=>
                     {
                         setTitle(event.target.value);
                     }}></input>
                 </label>
-            </p>
-            <p>
+           
                 <label>Price:
                     <input required name="price" type="text" value={price} onChange={(event)=>
                     {
                         setPrice(event.target.value);
                     }}></input>
                 </label>
-            </p>
-            <p>
+            
                 <label>Description:
                     <input required name="description" type="text" value={description} onChange={(event)=>
                     {
                         setDescription(event.target.value);
                     }}></input>
                 </label>
-            </p>
-            <p>
+            
                 <label>Location:
                     <input required name="location" type="text" value={location} onChange={(event)=>
                     {
@@ -53,7 +57,8 @@ export default function NewPost()
                 </label>
                 <br/>
                 <button type="submit">Post</button>
-            </p>
+                {post && <p>Post sent successfully!</p>}
+            
             
         </form>
             

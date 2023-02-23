@@ -28,7 +28,7 @@ const Logout = () =>
     <Link to="/User">
       <button className="navBtns">Profile</button>
     </Link>
-    <button onClick={onLogoutClick}>Logout</button>
+    
     </div>
   )
 }
@@ -51,6 +51,10 @@ return(
 const Navbar = () => {
   return (
     <div id="navbar">
+      
+      {
+        ifUserLogged() ? <button onClick={onLogoutClick}>Logout</button>: null
+      }
       <h2 className="siteTitle"> Stranger's Things</h2>
       {
         ifUserLogged() ? <Logout/>:<Login/>

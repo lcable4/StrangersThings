@@ -37,13 +37,33 @@ body {
     background-color: white;
     padding: 15px;
 }
-.registrationForm, .loginForm, .newPostForm {
+.registrationForm, .loginForm {
     background-color: lightgray;
     height: 100vh;
     display: flex;
     flex-flow: column wrap;
     justify-content: start;
     align-items: center;
+}
+.newPostForm {
+    background-color: lightgray;
+    height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+}
+.newPostDetails {
+    background-color: white;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 2px solid black;
+    margin-top: 80px;
+}
+.newPostTitle {
+    margin-top: 30px;
 }
 div#app{
     height: 100vh;
@@ -55,7 +75,10 @@ div#app{
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    background-color: white;
+    margin: 5px;
 }
+
 
 .postTitle {
     border-bottom: 2px solid black;
@@ -67,20 +90,10 @@ div#app{
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: auto;
     background-color: lightgray;
 }
-.userPostDetails {
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 80%;
-    width: 80%;
-    background-color: white;
-    overflow: auto;
-}
+
 .postDetailContainer {
     height: 100vh;
     background-color: lightgray;
@@ -95,6 +108,7 @@ div#app{
     align-items: center;
     flex-direction: column;
     padding: 15px;
+    
 }
 .userMessagesContainer {
     display: flex;

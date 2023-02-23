@@ -43,10 +43,10 @@ const AllPosts = () => {
                 return (
                     <div key={idx} className="allPosts">
                         <h3>{post.title}</h3>
-                        <span>Price: {post.price}</span>
-                        <span>{post.description}</span>
-                        <span>Location: {post.location}</span>
-                        <span>Active: {post.active ? "Yes" : "No"}</span>
+                        <p>Price: {post.price}</p>
+                        <p>{post.description}</p>
+                        <p>Location: {post.location}</p>
+                        <p>Active: {post.active ? "Yes" : "No"}</p>
                         <Link to={`/details/${post._id}`}><button>See details</button></Link>
                         {
                             post.isAuthor ? <><button onClick={()=>DeleteAndUpdate(post._id, idx)}>Delete</button> <button>Edit</button> </>: null
