@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 
+
 function onLogoutClick()
 {
   console.log("been clicked")
@@ -24,6 +25,9 @@ const Logout = () =>
     <button onClick={onLogoutClick}>Logout</button>
     <Link to="/newpost">
       <button>New Post</button>
+    </Link>
+    <Link to="/User">
+      <button>Profile</button>
     </Link>
     </>
   )
