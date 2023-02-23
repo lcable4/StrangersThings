@@ -51,7 +51,9 @@ export default function User()
     return(
         <div className='userPostContainer'>
             <div className='userPostBtn'>
-                <button><h1>My Posts</h1></button> <Link to="/User/Messages"><button><h1>My Messages</h1></button></Link>
+                <button><h1>My Posts</h1></button>
+                <Link to="/User/Messages"><button><h1>My Messages</h1></button></Link>
+                <h1>Logged in as: {localStorage.getItem('username')}</h1>
             </div>
             
                 {

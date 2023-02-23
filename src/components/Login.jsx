@@ -26,6 +26,7 @@ export default function Login() {
               setSubmitMessage("Successfully logged in!");
               displayMessages();
               navigate('/')
+              localStorage.setItem('username', username)
           } 
           
           console.log(response);

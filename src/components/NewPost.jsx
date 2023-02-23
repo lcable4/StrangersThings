@@ -28,33 +28,33 @@ export default function NewPost()
         }
         }>
             
-                <label>Title:
+                <label>Title:</label>
                     <input required name="title" type="text" value={title} onChange={(event)=>
                     {
                         setTitle(event.target.value);
                     }}></input>
-                </label>
+                
            
-                <label>Price:
+                <label>Price:</label>
                     <input required name="price" type="text" value={price} onChange={(event)=>
                     {
                         setPrice(event.target.value);
                     }}></input>
-                </label>
+                
             
-                <label>Description:
+                <label>Description:</label>
                     <input required name="description" type="text" value={description} onChange={(event)=>
                     {
                         setDescription(event.target.value);
                     }}></input>
-                </label>
+                
             
-                <label>Location:
+                <label>Location:</label>
                     <input required name="location" type="text" value={location} onChange={(event)=>
                     {
                         setLocation(event.target.value);
                     }}></input>
-                </label>
+                
                 <br/>
                 <button type="submit">Post</button>
                 {post && <p>Post sent successfully!</p>}

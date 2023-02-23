@@ -60,7 +60,7 @@ export default function UserMessages()
             )
         }):null
     }
-    
+    <Link to="/">Go Back</Link>
     </div>
     )
 
