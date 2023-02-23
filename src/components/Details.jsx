@@ -66,24 +66,25 @@ export default function Details() {
     
     return (
     <>
-        <div>
+        <div className='postDetailContainer'>
             <h1>Post Details</h1>
             {
                 post ? (
-                    <>
-                    <h3>{post.title}</h3>
+                    <div className='postDetails'>
+                    <h3 className='postTitle'>{post.title}</h3>
                     <p>{post.description}</p>
-                    <p>{post.price}</p>
-                    <p>{post.location}</p>
+                    <p>price: {post.price}</p>
+                    <p>location: {post.location}</p>
                     {post.isAuthor ? <p>Owned by you</p> : <MessageForm postId={postId}/>}
-                    </>
+                    </div>
                 ) : (
                     <p>loading</p>
                 )
             }
+            <Link to="/">Go Back</Link>
         </div>
        
-    <Link to="/">Go Back</Link>
+        
     </>
     )
 }

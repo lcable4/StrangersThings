@@ -68,6 +68,7 @@ export default function User()
                         )
                   }) : null
              }
+             <Link to="/">Go Back</Link>
             </div>
         </div>
     )

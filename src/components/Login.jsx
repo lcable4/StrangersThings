@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import {userLogin, displayMessages} from "../apiAdapters/index.js"
 
 export default function Login() {
@@ -9,7 +9,12 @@ export default function Login() {
     const [password, setPassword] = useState("");
     const [response, setResponse] = useState("");
     const [submitMessage, setSubmitMessage] = useState("");
+    let [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
     
+
+
+
     async function onLogin(username, password) {
         try {
           const token = await userLogin(username, password);
@@ -20,10 +25,14 @@ export default function Login() {
               setPassword("");
               setSubmitMessage("Successfully logged in!");
               displayMessages();
+              navigate('/')
           } 
           
           console.log(response);
         } catch (error) {
+          setErrorMessage("Incorrect login please try again!!")
+          setUsername("");
+          setPassword("");
           console.log(error);
         }
       }
@@ -33,6 +42,7 @@ export default function Login() {
     <>
     <div className='loginForm'>
         <h1>Login</h1>
+        {errorMessage && <div>{errorMessage}</div>}
         <form onSubmit={(event)=>
         {
             event.preventDefault();

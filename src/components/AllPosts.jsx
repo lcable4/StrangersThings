@@ -35,7 +35,7 @@ const AllPosts = () => {
 
     const navigate = useNavigate();
     return (
-    <div>
+    <div className='allPostsContainer'>
         <h1>All Posts</h1>
         {   
 

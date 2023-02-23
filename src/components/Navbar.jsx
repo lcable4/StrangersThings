@@ -22,13 +22,13 @@ const Logout = () =>
 {
   return(
     <>
-    <button onClick={onLogoutClick}>Logout</button>
     <Link to="/newpost">
       <button>New Post</button>
     </Link>
     <Link to="/User">
       <button>Profile</button>
     </Link>
+    <button onClick={onLogoutClick}>Logout</button>
     </>
   )
 }

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {displayMessages, getAllPosts} from '../apiAdapters/index'
-
+import { Link } from 'react-router-dom'
 
 export default function UserMessages()
 {
@@ -46,6 +46,7 @@ export default function UserMessages()
     }, [])
     return(
         <div>
+        <Link to="/User"><button><h1>My Posts</h1></button></Link> <button><h1>My Messages</h1></button>
         {
         messages.length ? messages.map((message, idx)=>
         {
@@ -57,6 +58,7 @@ export default function UserMessages()
             )
         }):null
     }
+    
     </div>
     )
 
