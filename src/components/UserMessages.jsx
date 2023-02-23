@@ -5,6 +5,7 @@ import {displayMessages} from '../apiAdapters/index'
 export default function UserMessages()
 {
     let [messages, setMessages] = useState([]);
+    console.log(messages)
 
     async function getMessages()
     {
