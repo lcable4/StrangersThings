@@ -53,7 +53,6 @@ export default function User()
             <div className='userPostBtn'>
                 <button><h1>My Posts</h1></button>
                 <Link to="/User/Messages"><button><h1>My Messages</h1></button></Link>
-                <h1>Logged in as: {localStorage.getItem('username')}</h1>
             </div>
             
                 {
@@ -70,7 +69,12 @@ export default function User()
                                 <Link to="/User"><button onClick={()=>DeleteAndUpdate(post._id, idx)}>Delete</button></Link> <button>Edit</button> 
                            </div>
                         )
-                  }) : null
+                  }) : <div>
+                            <h3>
+                            You haven't made any posts yet
+                            </h3>
+                            <p>Make a new post <Link to="/newpost">here</Link></p>
+                        </div>
              }
              <Link to="/">Go Back</Link>
             

@@ -20,6 +20,7 @@ const router = createBrowserRouter(
         <Route path="/details/:postId" element={<Details/>}/>
         <Route path="User" element={<User/>}/>
         <Route path="/User/Messages" element={<UserMessages/>}/>
+        
         </>
     )
 )

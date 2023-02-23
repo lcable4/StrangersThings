@@ -35,7 +35,7 @@ const Navbar = () => {
         ifUserLogged() ? <Link to="/newpost"><button className="navBtns">New Post</button></Link>:null
       }
       {
-        ifUserLogged() ? <Link to="/User"><button className="navBtns">Profile</button></Link> : null
+        ifUserLogged() ? <><Link to="/User"><button className="navBtns">Profile</button></Link><p>Logged in as: {localStorage.getItem('username')}</p></> : null
       }
     </div>
   );

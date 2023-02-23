@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 export default function UserMessages()
 {
     let [messages, setMessages] = useState([]);
+    let [reply, setReply] = useState([]);
 
     async function getMyPosts()
     {
@@ -39,6 +40,12 @@ export default function UserMessages()
             console.error(e);
         }
     }
+   
+    console.log(messages)
+   
+    async function sendReply () {
+        
+    }
 
     useEffect(()=>
     {
@@ -53,12 +60,31 @@ export default function UserMessages()
         messages.length ? messages.map((message, idx)=>
         {
             return(
+                <>
                 <div key={idx} className='userMsgDetails'>
                 <h3>message for: {message.post.title}</h3>
                 <p>{message.content}</p>
                 </div>
+                <div>
+                <form className="replyMsg" onSubmit={(event)=>
+                    {
+                        event.preventDefault();
+                        sendReply();
+                    }
+                    }>
+                    <input required name="reply" type="text" value={reply} onChange={(event)=>
+                    {
+                        setReply(event.target.value);
+                    }}></input>
+                
+                    <button type="submit">Reply</button>
+                    </form>
+               </div>
+                </>
             )
-        }):null
+        }): <div>
+            <h3>You don't have any messages</h3>
+        </div>
     }
     <Link to="/">Go Back</Link>
     </div>
