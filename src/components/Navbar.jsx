@@ -56,6 +56,7 @@ const Navbar = () => {
         ifUserLogged() ? <button onClick={onLogoutClick}>Logout</button>: null
       }
       <h2 className="siteTitle"> Stranger's Things</h2>
+      
       {
         ifUserLogged() ? <Logout/>:<Login/>
       }
