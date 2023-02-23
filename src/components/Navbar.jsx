@@ -21,15 +21,15 @@ function ifUserLogged()
 const Logout = () =>
 {
   return(
-    <>
+    <div className="navBtnsDiv">
     <Link to="/newpost">
-      <button>New Post</button>
+      <button className="navBtns">New Post</button>
     </Link>
     <Link to="/User">
-      <button>Profile</button>
+      <button className="navBtns">Profile</button>
     </Link>
     <button onClick={onLogoutClick}>Logout</button>
-    </>
+    </div>
   )
 }
 

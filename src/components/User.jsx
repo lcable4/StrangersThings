@@ -49,9 +49,11 @@ export default function User()
 
     console.log("load")
     return(
-        <div>
-            <button><h1>My Posts</h1></button> <Link to="/User/Messages"><button><h1>My Messages</h1></button></Link>
-            <div>
+        <div className='userPostContainer'>
+            <div className='userPostBtn'>
+                <button><h1>My Posts</h1></button> <Link to="/User/Messages"><button><h1>My Messages</h1></button></Link>
+            </div>
+            <div className='userPostDetails'>
                 {
                     myPosts.length ? myPosts.map((post, idx)=>
                     {

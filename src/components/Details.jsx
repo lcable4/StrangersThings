@@ -13,13 +13,25 @@ function sendMessage(postId, content) {
 const MessageForm = (props) =>
 {
     const [message, setMessage] = useState('');
+    const [messageSent, setMessageSent] = useState(false);
 
     const postId = props.postId
+
+    
+    const sendMessageHandler = async (postId, message) => {
+        try {
+            await sendMessage(postId, message);
+            setMessage('');
+            setMessageSent(true);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     return(
         <form onSubmit={(e) => {
             e.preventDefault();
-            sendMessage(postId, message);
+            sendMessageHandler(postId, message);
         }}>
             
                 <label>
@@ -37,7 +49,7 @@ const MessageForm = (props) =>
                     />
                 </label>  
                 <button type="submit">send message</button>  
-            
+                {messageSent && <p>Message sent successfully!</p>}
         </form>
     )
 }

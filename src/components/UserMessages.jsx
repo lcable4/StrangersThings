@@ -45,14 +45,16 @@ export default function UserMessages()
         getMyPosts();
     }, [])
     return(
-        <div>
-        <Link to="/User"><button><h1>My Posts</h1></button></Link> <button><h1>My Messages</h1></button>
+        <div className='userMessagesContainer'>
+            <div className='userMsgBtn'>
+                <Link to="/User"><button><h1>My Posts</h1></button></Link> <button><h1>My Messages</h1></button>
+            </div>
         {
         messages.length ? messages.map((message, idx)=>
         {
             return(
-                <div key={idx}>
-                <h3>{message.post.title}</h3>
+                <div key={idx} className='userMsgDetails'>
+                <h3>message for: {message.post.title}</h3>
                 <p>{message.content}</p>
                 </div>
             )
