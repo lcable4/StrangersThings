@@ -17,7 +17,7 @@ export default function NewPost()
         <form onSubmit={(event)=>
         {
             event.preventDefault();
-            makeNewPost(title,description, price,location)
+            makeNewPost(title,description, price,location);
         }
         }>
             <p>
@@ -51,9 +51,12 @@ export default function NewPost()
                         setLocation(event.target.value);
                     }}></input>
                 </label>
+                <br/>
+                <button type="submit">Post</button>
             </p>
+            
         </form>
-            <button type="submit">Post</button>
+            
         <Link to="/">Go Back</Link>
         </div>
         </>
