@@ -10,9 +10,12 @@ function sendMessage(postId, content) {
     
 }
 
-const MessageForm = () =>
+const MessageForm = (props) =>
 {
     const [message, setMessage] = useState('');
+
+    const postId = props.postId
+
     return(
         <form onSubmit={(e) => {
             e.preventDefault();
@@ -29,6 +32,7 @@ const MessageForm = () =>
                         minLength="5"
                         onChange={(e) => {
                             setMessage(e.target.value);
+                            console.log(message)
                         }}
                     />
                 </label>  
@@ -71,7 +75,7 @@ export default function Details() {
                     <p>{post.description}</p>
                     <p>{post.price}</p>
                     <p>{post.location}</p>
-                    {post.isAuthor ? <p>Owned by you</p> : <MessageForm/>}
+                    {post.isAuthor ? <p>Owned by you</p> : <MessageForm postId={postId}/>}
                     </>
                 ) : (
                     <p>loading</p>
