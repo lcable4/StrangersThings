@@ -79,11 +79,11 @@ export default function User()
                                 <Link to={`/details/${post._id}`} className='userLinks'>
                                     <button className='userBtns'>View Post</button>
                                 </Link>
-                                <Link to="/User" className='userLinks'>
-                                    <button className='userBtns' onClick={()=>DeleteAndUpdate(post._id, idx)}>Delete</button>
-                                </Link>
                                 <Link to={`/posts/edit/${post._id}`} className='userLinks'>
                                     <button className='userBtns'>Edit</button> 
+                                </Link>
+                                <Link to="/User" className='userLinks'>
+                                    <button className='userBtns' onClick={()=>DeleteAndUpdate(post._id, idx)}>Delete</button>
                                 </Link>
                            </div>
                         )

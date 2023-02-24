@@ -20,7 +20,7 @@ export default function UserMessages()
             let messageHolder = [];
             for(let i = 0; i < result.length; i++)
             {
-                console.log(result[i].isAuthor)
+                
                 if(result[i].isAuthor)
                 {
                     holder.push(result[i]);
@@ -44,7 +44,7 @@ export default function UserMessages()
         }
     }
    
-    console.log(messages)
+    
    
     async function sendReply (postId, content) {
         try {

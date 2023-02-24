@@ -135,7 +135,6 @@ export async function displayMessages () {
   },
 }).then(response => response.json())
   .then(result => {
-    console.log(result.data.messages);
     return result.data.messages;
   })
   .catch(console.error);

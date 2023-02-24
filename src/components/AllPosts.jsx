@@ -5,11 +5,13 @@ import { Link, useNavigate } from "react-router-dom"
 
 const AllPosts = () => {
   
-    
+    let welcomeMessage = "login as creator, password: 12345 to see test posts and messages"
     let [posts, setPosts] = useState([]);
     let [searchText, setSearchText] = useState("");
     let searchInput = React.useRef(null);
     const navigate = useNavigate();
+    
+    console.log(welcomeMessage);
 
     async function search()
     {
@@ -22,10 +24,8 @@ const AllPosts = () => {
             {
                 holder.push(searchPosts[i]);
             }
-        }
-        console.log(holder)
-        setPosts(holder);
-        
+        }      
+        setPosts(holder);      
     }
 
     const SearchBar = ()=>  
