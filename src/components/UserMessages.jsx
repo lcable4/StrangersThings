@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {displayMessages, getAllPosts} from '../apiAdapters/index'
+import {displayMessages, getAllPosts, deletePost} from '../apiAdapters/index'
 import { Link } from 'react-router-dom'
 import { sendMessage } from './Details'
 import Navbar from './Navbar';
@@ -8,7 +8,9 @@ export default function UserMessages()
 {
     let [messages, setMessages] = useState([]);
     let [reply, setReply] = useState([]);
-    let [submitInfo, setSubmitInfo] = useState([])
+    let [submitInfo, setSubmitInfo] = useState([]);
+    const [messageHolder, setMessageHolder] = useState([]);
+    
 
     async function getMyPosts()
     {
@@ -18,6 +20,7 @@ export default function UserMessages()
             let messages = await displayMessages();
             let holder = [];
             let messageHolder = [];
+            console.log(messageHolder)
 
             for(let i = 0; i < result.length; i++)
             {
@@ -39,19 +42,60 @@ export default function UserMessages()
                 }
             }
             setMessages(messageHolder);
+            setMessageHolder(messageHolder);
         }
-        
+
         catch(e)
         {
             console.error(e);
         }
     }
    
-    
+    function handleDelete(index) {
+        const newMessageHolder = [...messageHolder];
+        newMessageHolder.splice(index, 1);
+        setMessages(newMessageHolder);
+        setMessageHolder(newMessageHolder);
+      }
+
+    function GetReplyForm(prop) {
+        
+        let [messageInputs, setMessageInputs] = useState([]);
+        let message = prop.message
+
+        return (
+        <form 
+        className="replyMsg" 
+        onSubmit={(event)=>
+            {
+                event.preventDefault();
+                sendReply(message.post._id, messageInputs);
+            }
+            }>
+            <input 
+                required 
+                className='userMsgInput'
+                name="reply" 
+                type="text" 
+                value={messageInputs} 
+                onChange={(event)=>
+                    {
+                        setMessageInputs(event.target.value);
+                    }}>
+
+            </input>
+        
+            <button className='userMsgBtns' type="submit">Reply</button>
+            {submitInfo && <p>{submitInfo}</p>}
+        </form>     
+    )
+    }
    
+
+
     async function sendReply (postId, content) {
         try {
-            await sendMessage(postId, content);
+            sendMessage(postId, content);
             setReply('')
             setSubmitInfo('reply sent succesfully')
             await getMyPosts();
@@ -89,31 +133,10 @@ export default function UserMessages()
                     <h3 className="allPostsTitles">Message from: {message.fromUser.username}</h3>
                     <h3>Responding to your post: {message.post.title}</h3>
                     <p>{message.content}</p>
-                <br/>              
-                    <form 
-                    className="replyMsg" 
-                    onSubmit={(event)=>
-                        {
-                            event.preventDefault();
-                            sendReply(message.post._id, reply);
-                        }
-                        }>
-                        <input 
-                            required 
-                            className='userMsgInput'
-                            name="reply" 
-                            type="text" 
-                            value={reply} 
-                            onChange={(event)=>
-                                {
-                                    setReply(event.target.value);
-                                }}>
-
-                        </input>
                     
-                        <button className='userMsgBtns' type="submit">Reply</button>
-                        {submitInfo && <p>{submitInfo}</p>}
-                    </form>            
+                <br/>              
+                <GetReplyForm message={message} postId={message.post._id} index={idx}/>         
+                <button onClick={() => handleDelete(idx)}>Delete</button> 
                 </div>            
                 )
                 
