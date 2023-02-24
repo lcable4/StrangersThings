@@ -8,4 +8,5 @@ export { default as NewPost} from "./NewPost"
 export { default as Details } from "./Details"
 export { default as User} from "./User"
 export { default as UserMessages} from "./UserMessages"
+export {default as EditPost} from "./EditPost"
 

@@ -83,7 +83,7 @@ const AllPosts = () => {
                         <p>Active: {post.active ? "Yes" : "No"}</p>
                         <Link to={`/details/${post._id}`}><button className='btns'>See details</button></Link>
                         {
-                            post.isAuthor ? <><button className='btns' onClick={()=>DeleteAndUpdate(post._id, idx)}>Delete</button> <button className='btns'>Edit</button> </>: null
+                            post.isAuthor ? <><button className='btns' onClick={()=>DeleteAndUpdate(post._id, idx)}>Delete</button> <Link to={`/posts/edit/${post._id}`}><button className='btns'>Edit</button></Link>S </>: null
                         }
                     </div>
                 )

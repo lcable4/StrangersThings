@@ -85,6 +85,30 @@ export async function deletePost (postId) {
         
     }
 
+export async function editPost(title, description, price, location, postId)
+{
+  fetch(`http://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/posts/${postId}`, {
+  method: "PATCH",
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+  },
+  body: JSON.stringify({
+    post: {
+      title: title,
+      description: description,
+      price: price,
+      location: location,
+      willDeliver: true
+    }
+  })
+}).then(response => response.json())
+  .then(result => {
+    console.log(result);
+  })
+  .catch(console.error);
+}
+
 export async function messages (postId, message) {
     fetch(`https://strangers-things.herokuapp.com/api/2301-FTB-ET-WEB-FT/posts/${postId}/messages`, {
   method: "POST",
