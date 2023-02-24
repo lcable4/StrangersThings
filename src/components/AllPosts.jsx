@@ -8,8 +8,8 @@ const AllPosts = () => {
     
     let [posts, setPosts] = useState([]);
     let [searchText, setSearchText] = useState("");
-    const searchInput = React.useRef(null);
-
+    let searchInput = React.useRef(null);
+    const navigate = useNavigate();
 
     async function search()
     {
@@ -25,12 +25,14 @@ const AllPosts = () => {
         }
         console.log(holder)
         setPosts(holder);
+        
     }
 
     const SearchBar = ()=>  
     {
     return(
         <div className='searchBar'>
+            
             <form onSubmit={(event)=>
                 {
                     event.preventDefault();
@@ -46,7 +48,7 @@ const AllPosts = () => {
         try {
           const result = await getAllPosts();
           setPosts(result);
-          console.log(result)
+          
         } catch (err) {
           console.log(err);
         }
@@ -70,7 +72,6 @@ const AllPosts = () => {
         navigate("/");
     }
 
-    const navigate = useNavigate();
     return (
     <div className='allPostsContainer'>
         <h1 className='allPostsTitle'>All Listings</h1>

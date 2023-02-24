@@ -66,11 +66,16 @@ export default function UserMessages()
         <>
         <Navbar/>
         <div className='userMessagesContainer'>
-            <div className='userMsgBtn'>
-                <Link to="/User">
-                    <button className='btns'><h1>My Posts</h1></button>
-                </Link> 
-                <button className='btns'><h1>My Messages</h1></button>
+            <div className='userBtnDiv'>
+                <p>Viewing Messages</p>
+                <Link to="/User" className='userMsgLinks'>
+                    <button className='userPostBtn'>
+                        <h1>My Posts</h1>
+                    </button>
+                </Link > 
+                <button className='userPostBtn'>
+                    <h1>My Messages</h1>
+                </button>
             </div>
         {
             messages.length ? messages.map((message, idx)=>
@@ -82,18 +87,26 @@ export default function UserMessages()
                     <h3>Responding to your post: {message.post.title}</h3>
                     <p>{message.content}</p>
                 <br/>              
-                <form className="replyMsg" onSubmit={(event)=>
+                <form 
+                className="replyMsg" 
+                onSubmit={(event)=>
                     {
                         event.preventDefault();
                         sendReply(message.post._id, reply);
                     }
                     }>
-                    <input required name="reply" type="text" value={reply} onChange={(event)=>
+                    <input 
+                    required 
+                    className='userMsgInput'
+                    name="reply" 
+                    type="text" 
+                    value={reply} 
+                    onChange={(event)=>
                     {
                         setReply(event.target.value);
                     }}></input>
                 
-                    <button className='btns' type="submit">Reply</button>
+                    <button className='userMsgBtns' type="submit">Reply</button>
                     {submitInfo && <p>{submitInfo}</p>}
                 </form>            
                 </div>            

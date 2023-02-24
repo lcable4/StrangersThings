@@ -53,9 +53,16 @@ export default function User()
         <>
         <Navbar />
         <div className='userPostContainer'>
-            <div className='userPostBtn'>
-                <button className='btns'><h1>My Posts</h1></button>
-                <Link to="/User/Messages"><button className='btns'><h1>My Messages</h1></button></Link>
+            <div className='userBtnDiv'>
+                <p>Viewing Posts</p>
+                <button className='userPostBtn'>
+                    <h1>My Posts</h1>
+                </button>
+                <Link to="/User/Messages">
+                    <button className='userPostBtn'>
+                        <h1>My Messages</h1>
+                    </button>
+                </Link>
             </div>
             
                 {
@@ -69,14 +76,14 @@ export default function User()
                                 <p>{post.description}</p>
                                 <p>Location: {post.location}</p>
                                 <p>Active: {post.active ? "Yes" : "No"}</p>
-                                <Link to={`/details/${post._id}`}>
-                                    <button className='btns'>View Post</button>
+                                <Link to={`/details/${post._id}`} className='userLinks'>
+                                    <button className='userBtns'>View Post</button>
                                 </Link>
-                                <Link to="/User">
-                                    <button className='btns' onClick={()=>DeleteAndUpdate(post._id, idx)}>Delete</button>
+                                <Link to="/User" className='userLinks'>
+                                    <button className='userBtns' onClick={()=>DeleteAndUpdate(post._id, idx)}>Delete</button>
                                 </Link>
-                                <Link to={`/posts/edit/${post._id}`}>
-                                    <button className='btns'>Edit</button> 
+                                <Link to={`/posts/edit/${post._id}`} className='userLinks'>
+                                    <button className='userBtns'>Edit</button> 
                                 </Link>
                            </div>
                         )
