@@ -79,6 +79,15 @@ export default function Details() {
 
     console.log(post)
 
+    function showMessage()
+    {
+        console.log(localStorage.getItem("token"))
+        if(localStorage.getItem("token") != null)
+        {
+            return true;
+        }
+        return false;
+    }
     
     return (
     <>
@@ -93,7 +102,12 @@ export default function Details() {
                     <p>{post.description}</p>
                     <p>price: {post.price}</p>
                     <p>location: {post.location}</p>
-                    {post.isAuthor ? <p>Owned by you</p> : <MessageForm postId={postId}/>}
+                    {
+                        post.isAuthor ? <p>Owned by you</p> : null
+                    }
+                    {
+                        showMessage() ? <MessageForm postId={postId}/> : null
+                    }
                     </div>
                 ) : (
                     <p>loading</p>
