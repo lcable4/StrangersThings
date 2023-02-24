@@ -43,10 +43,12 @@ export default function Login() {
     return (
     <>
     <Navbar/>
-    <div className='loginForm'>
+    <div className='loginDiv'>
         <h1>Login</h1>
         {errorMessage && <div>{errorMessage}</div>}
-        <form onSubmit={(event)=>
+        <form 
+          className='loginForm' 
+          onSubmit={(event)=>
         {
             event.preventDefault();
             onLogin(username, password)//change to async
@@ -56,8 +58,13 @@ export default function Login() {
         }
         }>
         <p>
-          <label>Username:
-              <input name="username" type="text" value ={username} required onChange={(event)=>
+          <label className='loginLabel' >Username:
+              <input name="username" 
+                      type="text" 
+                      value ={username} 
+                      required 
+                      className='loginInput'
+                      onChange={(event)=>
               {
                   console.log("change");
                   setUsername(event.target.value);
@@ -65,8 +72,13 @@ export default function Login() {
           </label>
         </p>
         <p>
-          <label>Password:
-              <input name="password" type="password" value={password} required onChange={(event)=>
+          <label className='loginLabel'>Password:
+              <input name="password" 
+                      type="password" 
+                      value={password} 
+                      required 
+                      className='loginInput'
+                      onChange={(event)=>
               {
                   setPassword(event.target.value);
               }}/>
@@ -75,8 +87,8 @@ export default function Login() {
         </p>
         <button type="submit" className='btns'>Log In</button>
         {submitMessage && <p>{submitMessage}</p>}
+        <Link to="/registration">New user? Register here</Link>
         </form>
-    <Link to="/registration">New user? Register here</Link>
     <Link className="goBackBtns" to="/">Go Back</Link>
     </div>
     </>

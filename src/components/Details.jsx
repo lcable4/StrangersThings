@@ -30,16 +30,18 @@ const MessageForm = (props) =>
     }
 
     return(
-        <form onSubmit={(e) => {
+        <form className="sendMsgForm" onSubmit={(e) => {
             e.preventDefault();
             sendMessageHandler(postId, message);
         }}>
             
-                <label>
+                <label className='sendMsgLabel'>
                     Send a message:
-                    <input
+                    <br/>
+                    <textarea 
                         name="message"
                         type="text"
+                        className="sendMsgInput"
                         value={message}
                         required
                         minLength="5"
@@ -49,7 +51,8 @@ const MessageForm = (props) =>
                         }}
                     />
                 </label>  
-                <button type="submit" className='btns'>send message</button>  
+                <br/>
+                <button type="submit" className='btns'>Send Message</button>  
                 {messageSent && <p>Message sent successfully!</p>}
         </form>
     )

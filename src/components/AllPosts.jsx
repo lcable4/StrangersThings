@@ -37,7 +37,7 @@ const AllPosts = () => {
                     search(searchText);
                 }}>
                 <input ref={searchInput} className='searchBarInput' name="search" type="text" placeholder="Search posts by name" value={searchText} onChange={(event)=>{setSearchText(event.target.value);}}/>
-                <button type="submit" className='btns'>search</button>
+                <button type="submit" className='mainSearchBtn'>search</button>
         </form> 
     </div>
   )
@@ -73,7 +73,7 @@ const AllPosts = () => {
     const navigate = useNavigate();
     return (
     <div className='allPostsContainer'>
-        <h1 className='allPostsTitle'>All Posts</h1>
+        <h1 className='allPostsTitle'>All Listings</h1>
         <br/>
         <SearchBar/>
         {   

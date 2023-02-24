@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom"
+import Navbar from './Navbar';
 
 
 export default function Registration() {
@@ -53,63 +54,71 @@ export default function Registration() {
     }
     
     return (
-        
-    <div className="registrationForm">
+    <>   
+    <Navbar /> 
+    <div className="registrationDiv">
         <h1>Register</h1>
         {errorMessage && <div>{errorMessage}</div>}
-        <form onSubmit={(e) => {
+        <form className="registrationForm" onSubmit={(e) => {
             e.preventDefault();
             registerNewUser(newUserName, newUserPass);
         }}>
-            <p>
-                <label>
+            
+                <label className="registrationLabels">
                     Enter your name:
+                    <br/>
                     <input
                         name="name"
                         type="text"
                         value={newUserName}
                         required
+                        className="registrationInputs"
                         minLength="5"
                         onChange={(e) => {
                             setNewUserName(e.target.value);
                         }}
                     />
                 </label>    
-            </p>
-            <p>
-                <label>
+            
+                <label className="registrationLabels">
                     Set your new password:
+                    <br/>
                     <input
                         name="password"
                         type="password"
                         value={newUserPass}
                         required
+                        className="registrationInputs"
                         minLength="5"
                         onChange={(e) => {
                             setNewUserPass(e.target.value);
                         }}
                     />
                 </label>
-            </p>
-            <p>
-                <label>
+            
+                <label className="registrationLabels">
                     Verify your password:
+                    <br/>
                     <input 
                         name="password"
                         type="password"
                         value={passVerification}
+                        required
+                        className="registrationInputs"
+                        minLength="5"
                         onChange={(e) => {
                             setPassVerification(e.target.value);
                         }}/>
                 </label>
-            </p>
+            
             <button className='btns' type="submit">Submit</button>
             {submitMessage && <p>{submitMessage}</p>}
             <p>
             <Link to="/login">Already a user? Sign in</Link>
             </p>
-            <Link className="goBackBtns" to="/">Go Back</Link>
         </form>
+        <Link className="goBackBtns" to="/">Go Back</Link>
     </div>            
+    </>
   )
 }

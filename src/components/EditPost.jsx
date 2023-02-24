@@ -35,7 +35,7 @@ export default function EditPost()
         <>
         <Navbar />
         <div className='newPostForm'>
-            <h1 className='newPostTitle'>Make a listing</h1>
+            <h1 className='newPostTitle'>Edit a listing</h1>
         <form className="newPostDetails" onSubmit={(event)=>
         {
             event.preventDefault();
@@ -76,13 +76,13 @@ export default function EditPost()
                     }}></input>
                 
                 <br/>
-                <button className='btns' type="submit">Post</button>
-                {post && <p>Post sent successfully!</p>}
+                <button className='btns' type="submit">Edit Post</button>
+                {post && <p>Post edited successfully!</p>}
             
             
         </form>
             
-        <Link className="goBackBtns" to="/">Go Back</Link>
+        <Link className="goBackBtns" to="/User">Go Back</Link>
         </div>
         </>
     )

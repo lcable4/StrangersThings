@@ -6,6 +6,12 @@ body {
     margin: 0;
     font-family: 'Ubuntu';
 }
+div#app{
+    height: 100vh;
+}
+
+/* Nav */
+
 #navbar {
     background-color: gray;
     color: black;
@@ -36,25 +42,77 @@ body {
 .navLinks {
     cursor:pointer;
 }
+
+/* Registration / Login */
+
+.registrationDiv, .loginDiv {
+    background-color: #badefcff;
+    height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.registrationLabels, .loginLabel {
+    margin: 15px;
+    text-align: center;
+}
+.registrationInputs, .loginInput {
+    width: 200px;
+    margin: 5px;
+}
+.registrationForm, .loginForm {
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    height: 300px;
+    width: 90%;
+    padding: 20px;
+}
+
+/* Buttons */
+
 .btns {
     cursor:pointer;
+    height: 25px;
     
 }
 .goBackBtns {
     text-decoration: none;
     cursor:pointer;
+    margin: 2rem;
 }
-h1.allPostsTitle {
-    font-size: 35px;
+.mainSearchBtn {
+    width: 200px;
+    margin-top: 10px;
 }
+
+/* Search Bar */
+
+.searchBar{
+    margin: 1rem;
+    height: 75px;
+    width: 50%;
+    text-align: center;
+}
+.searchBarInput {
+    width: 100%;
+}
+
+/* All Posts */
+
 .allPostsTitle {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 0;
-    height: 100px;
-    font-size: x-large;
+    margin: 3rem;
+    height: 40px;
+    font-size: 50px;
 }
 .allPostsContainer {
     display: flex;
@@ -74,14 +132,18 @@ h1.allPostsTitle {
     background-color: white;
     padding: 15px;
 }
-.registrationForm, .loginForm {
-    background-color: lightgray;
-    height: 100vh;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: start;
-    align-items: center;
+
+.postTitle, .allPostsTitles {
+    border-bottom: 2px solid #9d44b5ff;
+    width: 80%;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 30px;
 }
+
+/* New Posts */
+
 .newPostForm {
     background-color: #badefcff;
     height: 100vh;
@@ -101,45 +163,19 @@ h1.allPostsTitle {
     margin-top: 70px;
     margin-bottom: 25px;
     font-size: 20px;
+    padding: 20px;
 }
 .newPostTitle {
     margin-top: 30px;
 }
-div#app{
-    height: 100vh;
-}
-.searchBar{
-    margin: 1rem;
-    height: 75px;
-    width: 50%;
-    text-align: center;
-}
-.searchBarInput {
-    width: 100%;
-}
-.myPosts{
-    border: 1px solid #9d44b5ff;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color: white;
-    margin: 1rem;
-    margin-bottom: 40px;
-    padding: 15px;
-    font-size: 20px;
+.newPostInput {
+    width: 60%;
+    height: 40px;
+    margin: 5px;
 }
 
 
-.postTitle, .allPostsTitles {
-    border-bottom: 2px solid #9d44b5ff;
-    width: 80%;
-    text-align: center;
-    margin: 0;
-    margin-bottom: 15px;
-    font-size: 30px;
-}
+/* Post Details */
 
 .postDetailContainer {
     height: 100vh;
@@ -158,6 +194,37 @@ div#app{
     width: 80%;
     font-size: 20px;
     margin-bottom: 2rem;
+}
+.sendMsgForm {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    height: 120px;
+    width: 90%;
+    padding: 20px;
+}
+.sendMsgInput, .sendMsgLabel {
+    height: 55px;
+    width: 400px;
+    margin: 0;
+    
+}
+/* UserPage */
+
+.myPosts{
+    border: 1px solid #9d44b5ff;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+    margin: 1rem;
+    margin-bottom: 40px;
+    padding: 15px;
+    font-size: 20px;
 }
 .userMessagesContainer, .userPostContainer {
     display: flex;
