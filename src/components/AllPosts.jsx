@@ -8,6 +8,8 @@ const AllPosts = () => {
     
     let [posts, setPosts] = useState([]);
     let [searchText, setSearchText] = useState("");
+    const searchInput = React.useRef(null);
+
 
     async function search()
     {
@@ -34,7 +36,7 @@ const AllPosts = () => {
                     event.preventDefault();
                     search(searchText);
                 }}>
-                <input className='searchBarInput' name="search" type="text" placeholder="Search posts by name" value={searchText} onChange={(event)=>{setSearchText(event.target.value);}}/>
+                <input ref={searchInput} className='searchBarInput' name="search" type="text" placeholder="Search posts by name" value={searchText} onChange={(event)=>{setSearchText(event.target.value);}}/>
                 <button type="submit" className='btns'>search</button>
         </form> 
     </div>
@@ -54,6 +56,9 @@ const AllPosts = () => {
         getPosts();
     }, [])
     
+    useEffect(() => {
+        {searchInput.current.focus();}
+    }, [searchText])
 
     function DeleteAndUpdate(postID, idx)
     {
