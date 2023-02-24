@@ -32,10 +32,17 @@ const Navbar = () => {
       }
       <h2 className="siteTitle"> Stranger's Things</h2>
       {
-        ifUserLogged() ? <Link to="/newpost"><button className="navBtns">New Post</button></Link>:null
-      }
-      {
-        ifUserLogged() ? <><Link to="/User"><button className="navBtns">Profile</button></Link><p>Logged in as: {localStorage.getItem('username')}</p></> : null
+        ifUserLogged() ? <>
+                          <div className="navBtns">
+                            <Link to="/newpost" >
+                              <button >New Post</button>
+                            </Link>
+                            <Link to="/User">
+                              <button >Profile</button>
+                            </Link>
+                            </div>
+                            <p>Logged in as: {localStorage.getItem('username')}</p>
+                          </>:null
       }
     </div>
   );

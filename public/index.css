@@ -1,15 +1,29 @@
+.color-palette {
+    --purpureus: #9d44b5ff;
+    --raspberry-rose: #b5446eff;
+    --davys-gray: #525252ff;
+    --uranian-blue: #badefcff;
+    --fluorescent-cyan: #0affedff;
+  }
+
 body {
     margin: 0;
 }
 #navbar {
-    background-color: black;
-    color: white;
+    background-color: #b5446eff;
+    color: black;
     display: flex;
     justify-content:space-around;
     align-items: center;
     flex-grow: 1;
     max-height: 10%;
     min-height: 40px;
+    border-bottom: 2px solid #525252ff;
+}
+.siteTitle {
+    width: 35%;
+    font-size: 30px;
+    text-align: center;
 }
 .navBtnsDiv {
     display: flex;
@@ -19,19 +33,28 @@ body {
 }
 .navBtns {
     cursor:pointer;
+    height: 100%;
+}
+.allPostsTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    height: 75px;
 }
 .allPostsContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: lightgray;
+    background-color: #badefcff;
 }
 
 .allPosts {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid #9d44b5ff;
     margin: 5px;
     width: 80%;
     background-color: white;
@@ -46,7 +69,7 @@ body {
     align-items: center;
 }
 .newPostForm {
-    background-color: lightgray;
+    background-color: #badefcff;
     height: 100vh;
     display: flex;
     flex-flow: column wrap;
@@ -54,19 +77,24 @@ body {
 }
 .newPostDetails {
     background-color: white;
+    height: 300px;
     width: 80%;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-evenly;
-    border: 2px solid black;
-    margin-top: 80px;
+    border: 2px solid #525252ff;
+    margin-top: 70px;
+    margin-bottom: 25px;
 }
 .newPostTitle {
     margin-top: 30px;
 }
 div#app{
     height: 100vh;
+}
+.searchBar{
+    margin: 1rem;
 }
 .myPosts{
     border: 1px solid black;
@@ -80,10 +108,12 @@ div#app{
 }
 
 
-.postTitle {
-    border-bottom: 2px solid black;
+.postTitle, .allPostsTitles {
+    border-bottom: 2px solid #9d44b5ff;
     width: 80%;
     text-align: center;
+    margin: 0;
+    margin-bottom: 15px;
 }
 .userPostContainer {
     display: flex;
@@ -96,19 +126,19 @@ div#app{
 
 .postDetailContainer {
     height: 100vh;
-    background-color: lightgray;
+    background-color: #badefcff;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 .postDetails {
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid #9d44b5ff;
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 15px;
-    
+    width: 80%;
 }
 .userMessagesContainer {
     display: flex;

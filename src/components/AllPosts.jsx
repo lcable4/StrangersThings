@@ -28,15 +28,15 @@ const AllPosts = () => {
     const SearchBar = ()=>  
     {
     return(
-        <div>
-        <form onSubmit={(event)=>
-        {
-            event.preventDefault();
-            search(searchText);
-        }}>
-        <input name="search" type="text" value={searchText} onChange={(event)=>{setSearchText(event.target.value);}}/>
-        <button type="submit">search</button>
-      </form> 
+        <div className='searchBar'>
+            <form onSubmit={(event)=>
+                {
+                    event.preventDefault();
+                    search(searchText);
+                }}>
+                <input name="search" type="text" value={searchText} onChange={(event)=>{setSearchText(event.target.value);}}/>
+                <button type="submit">search</button>
+        </form> 
     </div>
   )
 }
@@ -68,7 +68,7 @@ const AllPosts = () => {
     const navigate = useNavigate();
     return (
     <div className='allPostsContainer'>
-        <h1>All Posts</h1>
+        <h1 className='allPostsTitle'>All Posts</h1>
         <br/>
         <SearchBar/>
         {   
@@ -76,7 +76,7 @@ const AllPosts = () => {
             posts.length ? posts.map((post, idx) => {
                 return (
                     <div key={idx} className="allPosts">
-                        <h3>{post.title}</h3>
+                        <h3 className='allPostsTitles'>{post.title}</h3>
                         <p>Price: {post.price}</p>
                         <p>{post.description}</p>
                         <p>Location: {post.location}</p>

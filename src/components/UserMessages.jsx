@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import {displayMessages, getAllPosts} from '../apiAdapters/index'
 import { Link } from 'react-router-dom'
+import { sendMessage } from './Details'
 
 export default function UserMessages()
 {
     let [messages, setMessages] = useState([]);
     let [reply, setReply] = useState([]);
+    let [submitInfo, setSubmitInfo] = useState([])
 
     async function getMyPosts()
     {
@@ -43,8 +45,16 @@ export default function UserMessages()
    
     console.log(messages)
    
-    async function sendReply () {
-        
+    async function sendReply (postId, content) {
+        try {
+            await sendMessage(postId, content);
+            setReply('')
+            setSubmitInfo('reply sent succesfully')
+            await getMyPosts();
+        } catch (error) {
+            console.log(error);
+            setSubmitInfo('error try again')
+        }
     }
 
     useEffect(()=>
@@ -62,14 +72,16 @@ export default function UserMessages()
             return(
                 <>
                 <div key={idx} className='userMsgDetails'>
-                <h3>message for: {message.post.title}</h3>
-                <p>{message.content}</p>
+                    <h3>message from: {message.fromUser.username}</h3>
+                    <h3>message for: {message.post.title}</h3>
+                    <p>{message.content}</p>
                 </div>
-                <div>
+                <br/>
+                <>
                 <form className="replyMsg" onSubmit={(event)=>
                     {
                         event.preventDefault();
-                        sendReply();
+                        sendReply(message.post._id, reply);
                     }
                     }>
                     <input required name="reply" type="text" value={reply} onChange={(event)=>
@@ -78,8 +90,9 @@ export default function UserMessages()
                     }}></input>
                 
                     <button type="submit">Reply</button>
-                    </form>
-               </div>
+                    {submitInfo && <p>{submitInfo}</p>}
+                </form>
+               </>
                 </>
             )
         }): <div>
