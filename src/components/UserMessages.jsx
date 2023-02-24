@@ -136,7 +136,7 @@ export default function UserMessages()
                     
                 <br/>              
                 <GetReplyForm message={message} postId={message.post._id} index={idx}/>         
-                <button onClick={() => handleDelete(idx)}>Delete</button> 
+                <button >Delete</button> 
                 </div>            
                 )
                 
