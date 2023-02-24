@@ -71,11 +71,11 @@ export default function Login() {
 
           </label>
         </p>
-        <button type="submit">Log In</button>
+        <button type="submit" className='btns'>Log In</button>
         {submitMessage && <p>{submitMessage}</p>}
         </form>
     <Link to="/registration">New user? Register here</Link>
-    <Link to="/">Go Back</Link>
+    <Link className="goBackBtns" to="/">Go Back</Link>
     </div>
     </>
   )

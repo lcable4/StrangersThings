@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Link} from "react-router-dom"
 import {makeNewPost} from '../apiAdapters/index'
+import Navbar from './Navbar';
 
 
 
@@ -14,6 +15,7 @@ export default function NewPost()
 
     return(
         <>
+        <Navbar />
         <div className='newPostForm'>
             <h1 className='newPostTitle'>Make a listing</h1>
         <form className="newPostDetails" onSubmit={(event)=>
@@ -56,13 +58,13 @@ export default function NewPost()
                     }}></input>
                 
                 <br/>
-                <button type="submit">Post</button>
+                <button className='btns' type="submit">Post</button>
                 {post && <p>Post sent successfully!</p>}
             
             
         </form>
             
-        <Link to="/">Go Back</Link>
+        <Link className="goBackBtns" to="/">Go Back</Link>
         </div>
         </>
     )

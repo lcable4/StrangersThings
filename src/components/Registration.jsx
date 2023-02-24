@@ -102,12 +102,12 @@ export default function Registration() {
                         }}/>
                 </label>
             </p>
-            <button type="submit">Submit</button>
+            <button className='btns' type="submit">Submit</button>
             {submitMessage && <p>{submitMessage}</p>}
             <p>
             <Link to="/login">Already a user? Sign in</Link>
             </p>
-            <Link to="/">Go Back</Link>
+            <Link className="goBackBtns" to="/">Go Back</Link>
         </form>
     </div>            
   )

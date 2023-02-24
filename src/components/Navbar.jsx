@@ -28,21 +28,22 @@ const Navbar = () => {
     <div id="navbar">
       
       {
-        ifUserLogged() ? <button onClick={onLogoutClick}>Logout</button>: <div><Link to="/login"><button>Login</button></Link><Link to="/registration"><button>Register</button></Link></div>
+        ifUserLogged() ? <button className='btns' onClick={onLogoutClick}>Logout</button>: <div><Link to="/login"><button className='btns'>Login</button></Link><Link to="/registration"><button>Register</button></Link></div>
       }
-      <h2 className="siteTitle"> Stranger's Things</h2>
+      <h2 > <Link className="siteTitle" to="/">Stranger's Things</Link></h2>
       {
         ifUserLogged() ? <>
                           <div className="navBtns">
                             <Link to="/newpost" >
-                              <button >New Post</button>
+                              <button className='btns'>New Post</button>
                             </Link>
                             <Link to="/User">
-                              <button >Profile</button>
+                              <button className='btns'>Profile</button>
                             </Link>
-                            </div>
-                            <p>Logged in as: {localStorage.getItem('username')}</p>
-                          </>:null
+                          </div>
+                           <p>Logged in as: {localStorage.getItem('username')}</p>
+                          </>
+                          :null
       }
     </div>
   );

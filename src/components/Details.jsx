@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {Link, useParams} from "react-router-dom"
 import { getAllPosts, messages } from '../apiAdapters';
+import Navbar from './Navbar';
 
 export function sendMessage(postId, content) {
         
@@ -48,7 +49,7 @@ const MessageForm = (props) =>
                         }}
                     />
                 </label>  
-                <button type="submit">send message</button>  
+                <button type="submit" className='btns'>send message</button>  
                 {messageSent && <p>Message sent successfully!</p>}
         </form>
     )
@@ -73,17 +74,19 @@ export default function Details() {
         fetchPost();
     }, [postId]);
 
-    
+    console.log(post)
 
     
     return (
     <>
+        <Navbar />
         <div className='postDetailContainer'>
             <h1>Post Details</h1>
             {
                 post ? (
                     <div className='postDetails'>
                     <h3 className='postTitle'>{post.title}</h3>
+                    <h4>Posted by: {post.author.username}</h4>
                     <p>{post.description}</p>
                     <p>price: {post.price}</p>
                     <p>location: {post.location}</p>
@@ -93,7 +96,7 @@ export default function Details() {
                     <p>loading</p>
                 )
             }
-            <Link to="/">Go Back</Link>
+            <Link className="goBackBtns" to="/">Go Back</Link>
         </div>
        
         

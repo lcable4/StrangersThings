@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {displayMessages, getAllPosts} from '../apiAdapters/index'
 import { Link } from 'react-router-dom'
 import { sendMessage } from './Details'
+import Navbar from './Navbar';
 
 export default function UserMessages()
 {
@@ -62,22 +63,25 @@ export default function UserMessages()
         getMyPosts();
     }, [])
     return(
+        <>
+        <Navbar/>
         <div className='userMessagesContainer'>
             <div className='userMsgBtn'>
-                <Link to="/User"><button><h1>My Posts</h1></button></Link> <button><h1>My Messages</h1></button>
+                <Link to="/User">
+                    <button className='btns'><h1>My Posts</h1></button>
+                </Link> 
+                <button className='btns'><h1>My Messages</h1></button>
             </div>
         {
-        messages.length ? messages.map((message, idx)=>
-        {
+            messages.length ? messages.map((message, idx)=>
+            {
             return(
-                <>
+                
                 <div key={idx} className='userMsgDetails'>
-                    <h3>message from: {message.fromUser.username}</h3>
-                    <h3>message for: {message.post.title}</h3>
+                    <h3>Message from: {message.fromUser.username}</h3>
+                    <h3>Responding to your post: {message.post.title}</h3>
                     <p>{message.content}</p>
-                </div>
-                <br/>
-                <>
+                <br/>              
                 <form className="replyMsg" onSubmit={(event)=>
                     {
                         event.preventDefault();
@@ -89,18 +93,20 @@ export default function UserMessages()
                         setReply(event.target.value);
                     }}></input>
                 
-                    <button type="submit">Reply</button>
+                    <button className='btns' type="submit">Reply</button>
                     {submitInfo && <p>{submitInfo}</p>}
-                </form>
-               </>
-                </>
-            )
-        }): <div>
-            <h3>You don't have any messages</h3>
-        </div>
+                </form>            
+                </div>            
+                )
+                
+             }): <div>
+                    <h3>You don't have any messages</h3>
+                </div>
+    
     }
-    <Link to="/">Go Back</Link>
+    <Link className="goBackBtns" to="/">Go Back</Link>
     </div>
+    </>
     )
 
 }

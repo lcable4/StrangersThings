@@ -34,8 +34,8 @@ const AllPosts = () => {
                     event.preventDefault();
                     search(searchText);
                 }}>
-                <input name="search" type="text" value={searchText} onChange={(event)=>{setSearchText(event.target.value);}}/>
-                <button type="submit">search</button>
+                <input className='searchBarInput' name="search" type="text" placeholder="Search posts by name" value={searchText} onChange={(event)=>{setSearchText(event.target.value);}}/>
+                <button type="submit" className='btns'>search</button>
         </form> 
     </div>
   )
@@ -81,9 +81,9 @@ const AllPosts = () => {
                         <p>{post.description}</p>
                         <p>Location: {post.location}</p>
                         <p>Active: {post.active ? "Yes" : "No"}</p>
-                        <Link to={`/details/${post._id}`}><button>See details</button></Link>
+                        <Link to={`/details/${post._id}`}><button className='btns'>See details</button></Link>
                         {
-                            post.isAuthor ? <><button onClick={()=>DeleteAndUpdate(post._id, idx)}>Delete</button> <button>Edit</button> </>: null
+                            post.isAuthor ? <><button className='btns' onClick={()=>DeleteAndUpdate(post._id, idx)}>Delete</button> <button className='btns'>Edit</button> </>: null
                         }
                     </div>
                 )

@@ -1,16 +1,13 @@
-.color-palette {
-    --purpureus: #9d44b5ff;
-    --raspberry-rose: #b5446eff;
-    --davys-gray: #525252ff;
-    --uranian-blue: #badefcff;
-    --fluorescent-cyan: #0affedff;
-  }
+@import url('https://fonts.googleapis.com/css?family=Tilt+Prism&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
 
 body {
     margin: 0;
+    font-family: 'Ubuntu';
 }
 #navbar {
-    background-color: #b5446eff;
+    background-color: gray;
     color: black;
     display: flex;
     justify-content:space-around;
@@ -22,8 +19,11 @@ body {
 }
 .siteTitle {
     width: 35%;
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
+    text-decoration: none;
+    font-family: "Tilt Prism";
+    color: white;
 }
 .navBtnsDiv {
     display: flex;
@@ -35,19 +35,31 @@ body {
     cursor:pointer;
     height: 100%;
 }
+.btns {
+    cursor:pointer;
+}
+.goBackBtns {
+    text-decoration: none;
+    cursor:pointer;
+}
+h1.allPostsTitle {
+    font-size: 35px;
+}
 .allPostsTitle {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     margin: 0;
-    height: 75px;
+    height: 100px;
+    font-size: x-large;
 }
 .allPostsContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #badefcff;
+    font-size: 20px;
 }
 
 .allPosts {
@@ -86,6 +98,7 @@ body {
     border: 2px solid #525252ff;
     margin-top: 70px;
     margin-bottom: 25px;
+    font-size: 20px;
 }
 .newPostTitle {
     margin-top: 30px;
@@ -95,16 +108,25 @@ div#app{
 }
 .searchBar{
     margin: 1rem;
+    height: 75px;
+    width: 50%;
+    text-align: center;
+}
+.searchBarInput {
+    width: 100%;
 }
 .myPosts{
-    border: 1px solid black;
+    border: 1px solid #9d44b5ff;
     width: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     background-color: white;
-    margin: 5px;
+    margin: 1rem;
+    margin-bottom: 40px;
+    padding: 15px;
+    font-size: 20px;
 }
 
 
@@ -114,14 +136,7 @@ div#app{
     text-align: center;
     margin: 0;
     margin-bottom: 15px;
-}
-.userPostContainer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    height: auto;
-    background-color: lightgray;
+    font-size: 30px;
 }
 
 .postDetailContainer {
@@ -139,13 +154,16 @@ div#app{
     flex-direction: column;
     padding: 15px;
     width: 80%;
+    font-size: 20px;
+    margin-bottom: 2rem;
 }
-.userMessagesContainer {
+.userMessagesContainer, .userPostContainer {
     display: flex;
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    background-color: lightgray;
+    background-color: #badefcff;
+    
 }
 .userMsgDetails {
     display: flex;
@@ -155,8 +173,12 @@ div#app{
     width: 70%;
     border: 2px solid black;
     margin: 20px;
+    font-size: 20px;
 }
 .userPostBtn, .userMsgBtn {
+    display: flex;
+    justify-content: space-around;
     width: 100%;
     text-align: center;
+    margin: 1rem;
 }
