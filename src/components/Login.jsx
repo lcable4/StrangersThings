@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Link, useNavigate } from "react-router-dom"
 import {userLogin, displayMessages} from "../apiAdapters/index.js"
+import Navbar from './Navbar.jsx';
 
 export default function Login() {
   
@@ -41,6 +42,7 @@ export default function Login() {
   
     return (
     <>
+    <Navbar/>
     <div className='loginForm'>
         <h1>Login</h1>
         {errorMessage && <div>{errorMessage}</div>}

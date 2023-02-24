@@ -69,7 +69,10 @@ export default function User()
                                 <p>{post.description}</p>
                                 <p>Location: {post.location}</p>
                                 <p>Active: {post.active ? "Yes" : "No"}</p>
-                                <Link to="/User"><button className='btns' onClick={()=>DeleteAndUpdate(post._id, idx)}>Delete</button></Link> <button className='btns'>Edit</button> 
+                                <Link to="/User">
+                                    <button className='btns' onClick={()=>DeleteAndUpdate(post._id, idx)}>Delete</button>
+                                </Link>
+                                <button className='btns'>Edit</button> 
                            </div>
                         )
                   }) : <div>

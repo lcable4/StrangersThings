@@ -28,16 +28,22 @@ const Navbar = () => {
     <div id="navbar">
       
       {
-        ifUserLogged() ? <button className='btns' onClick={onLogoutClick}>Logout</button>: <div><Link to="/login"><button className='btns'>Login</button></Link><Link to="/registration"><button>Register</button></Link></div>
+        ifUserLogged() ? <button className="navBtns" onClick={onLogoutClick}>Logout</button>
+        : <div>
+            <Link className="navLinks" to="/login"><button className='btns'>Login</button></Link>
+            <Link className="navLinks" to="/registration"><button>Register</button></Link>
+          </div>
       }
-      <h2 > <Link className="siteTitle" to="/">Stranger's Things</Link></h2>
+      <h2 >
+        <Link className="siteTitle" to="/">Stranger's Things</Link>
+      </h2>
       {
         ifUserLogged() ? <>
-                          <div className="navBtns">
-                            <Link to="/newpost" >
+                          <div className="navLinksDiv">
+                            <Link to="/newpost" className="navLinks">
                               <button className='btns'>New Post</button>
                             </Link>
-                            <Link to="/User">
+                            <Link to="/User" className="navLinks">
                               <button className='btns'>Profile</button>
                             </Link>
                           </div>

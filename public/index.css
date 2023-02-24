@@ -15,6 +15,7 @@ body {
     flex-grow: 1;
     max-height: 10%;
     min-height: 40px;
+    min-width: 645px;
     border-bottom: 2px solid #525252ff;
 }
 .siteTitle {
@@ -25,18 +26,19 @@ body {
     font-family: "Tilt Prism";
     color: white;
 }
-.navBtnsDiv {
+.navLinksDiv {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    width: 50%;
+    align-items: center;
+    width: 130px;
+    height: 80px;
 }
-.navBtns {
+.navLinks {
     cursor:pointer;
-    height: 100%;
 }
 .btns {
     cursor:pointer;
+    
 }
 .goBackBtns {
     text-decoration: none;

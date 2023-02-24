@@ -53,6 +53,7 @@ export default function Registration() {
     }
     
     return (
+        
     <div className="registrationForm">
         <h1>Register</h1>
         {errorMessage && <div>{errorMessage}</div>}
