@@ -71,7 +71,7 @@ export default function User()
                         
                         return(
                           <div key={idx} className="myPosts">
-                                <h3>{post.title}</h3>
+                                <h3 className="allPostsTitles">{post.title}</h3>
                                 <p>Price: {post.price}</p>
                                 <p>{post.description}</p>
                                 <p>Location: {post.location}</p>

@@ -18,6 +18,7 @@ export default function UserMessages()
             let messages = await displayMessages();
             let holder = [];
             let messageHolder = [];
+
             for(let i = 0; i < result.length; i++)
             {
                 
@@ -26,6 +27,7 @@ export default function UserMessages()
                     holder.push(result[i]);
                 }
             }
+
             for(let i = 0; i < messages.length; i++)
             {
                 for(let j = 0; j < holder.length; j++)
@@ -38,6 +40,7 @@ export default function UserMessages()
             }
             setMessages(messageHolder);
         }
+        
         catch(e)
         {
             console.error(e);
@@ -83,32 +86,34 @@ export default function UserMessages()
             return(
                 
                 <div key={idx} className='userMsgDetails'>
-                    <h3>Message from: {message.fromUser.username}</h3>
+                    <h3 className="allPostsTitles">Message from: {message.fromUser.username}</h3>
                     <h3>Responding to your post: {message.post.title}</h3>
                     <p>{message.content}</p>
                 <br/>              
-                <form 
-                className="replyMsg" 
-                onSubmit={(event)=>
-                    {
-                        event.preventDefault();
-                        sendReply(message.post._id, reply);
-                    }
-                    }>
-                    <input 
-                    required 
-                    className='userMsgInput'
-                    name="reply" 
-                    type="text" 
-                    value={reply} 
-                    onChange={(event)=>
-                    {
-                        setReply(event.target.value);
-                    }}></input>
-                
-                    <button className='userMsgBtns' type="submit">Reply</button>
-                    {submitInfo && <p>{submitInfo}</p>}
-                </form>            
+                    <form 
+                    className="replyMsg" 
+                    onSubmit={(event)=>
+                        {
+                            event.preventDefault();
+                            sendReply(message.post._id, reply);
+                        }
+                        }>
+                        <input 
+                            required 
+                            className='userMsgInput'
+                            name="reply" 
+                            type="text" 
+                            value={reply} 
+                            onChange={(event)=>
+                                {
+                                    setReply(event.target.value);
+                                }}>
+
+                        </input>
+                    
+                        <button className='userMsgBtns' type="submit">Reply</button>
+                        {submitInfo && <p>{submitInfo}</p>}
+                    </form>            
                 </div>            
                 )
                 
